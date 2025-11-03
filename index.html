@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="App per contare i pezzi di sushi mangiati e tenere traccia dei pasti" />
+  <meta property="og:title" content="Conta Sushi App" />
+  <meta property="og:description" content="App per contare i pezzi di sushi mangiati e tenere traccia dei pasti" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#000000" />
+  <title>Conta Sushi</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍣</text></svg>" />
+</head>
+<body>
+
+  <!-- Audio per il click -->
+  <audio id="fartSound" preload="auto">
+    <source src="fart sound effect no copyright.mp3" type="audio/mp3">
+  </audio>
+  <!-- Indicatore sonoro -->
+  <div id="soundIndicator" style="position:fixed; top:20px; right:20px; background:rgba(255,255,255,0.1); color:var(--text); padding:8px 12px; border-radius:20px; opacity:0; transition:opacity 200ms ease; pointer-events:none;">
+    🔊 suono attivato
+  </div>
+  <div class="app">
+    <header class="app-header">
+      <div class="logo-pill">
+        <div class="logo-mark">🍣</div>
+  <div class="muted">pietro f.</div>
+      </div>
+    </header>
+    <section id="mainPage" class="page">
+      <main class="card" style="margin-bottom:18px;">
+        <h1>conta i pezzi di sushi</h1>
+        <div id="count" style="font-size:2.8rem;font-weight:700;margin:12px 0;">0</div>
+        <p class="muted">aggiungi pezzi e salva il pasto nello storico e manda tette.</p>
+        <div class="btn-container" style="margin-top:12px;">
+          <button id="incrementBtn" class="btn btn-secondary">+1</button>
+          <button id="saveBtn" class="btn btn-primary">salva</button>
+        </div>
+      </main>
+      <div class="scroll-hint" aria-hidden="true">▾ scorri</div>
+    </section>
+
+    <section id="historyPage" class="page history-page">
+      <div class="card" style="width:100%;">
+        <h2 style="margin:6px 0 12px 0;color:var(--text)">storico pasti</h2>
+        <div style="position:absolute; top:12px; right:12px">
+          <button id="backToTopBtn" class="btn btn-ghost">torna su</button>
+        </div>
+        <div id="history" class="history">
+          <!-- items inseriti dinamicamente -->
+        </div>
+        <div id="emptyState" class="empty" style="display:none;">nessun pasto salvato</div>
+      </div>
+    </section>
+
+    <!-- Modal template for item details -->
+  <div class="modal-overlay" id="detailModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+  <h2 style="margin:0 0 16px 0">dettaglio pasto</h2>
+        <div class="detail-section">
+          <!-- content inserted dynamically -->
+        </div>
+        <button class="btn-delete" onclick="deleteCurrentItem()">
+          <span style="font-size:1.1em">🗑</span>
+          elimina questo pasto
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie consent banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="cookie consent" hidden>
+    <div class="cookie-inner">
+      <div class="cookie-text">usiamo cookie tecnici per migliorare l'esperienza. accetti l'uso di cookie di tracciamento facoltativi?</div>
+      <div class="cookie-actions">
+        <button id="declineCookies" class="btn btn-ghost">rifiuta</button>
+        <button id="acceptCookies" class="btn btn-primary">accetta</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Audio files (aggiungi solo dopo aver verificato la licenza)
+# *.mp3
