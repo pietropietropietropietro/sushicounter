@@ -324,8 +324,15 @@ input:focus, textarea:focus, select:focus{outline:3px solid rgba(255,255,255,0.0
 }
 
 .history-body{flex:1;min-width:0}
-.history-title{font-weight:700;color:var(--text);font-size:0.98rem;margin-bottom:4px}
-.history-sub{color:var(--text-muted);font-size:0.88rem}
+.history-title{
+  font-weight:700;
+  color:var(--text);
+  font-size:0.98rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
 
 .history-meta{display:flex;gap:10px;align-items:center;margin-top:8px}
 .badge{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 8px;border-radius:999px;color:var(--text-muted);font-size:0.82rem}
@@ -465,7 +472,14 @@ input:focus, textarea:focus, select:focus{outline:3px solid rgba(255,255,255,0.0
 .logo-mark{width:30px;height:30px;border-radius:6px;background:linear-gradient(135deg,var(--accent),#ff9f7f);display:flex;align-items:center;justify-content:center;color:#111;font-weight:700}
 
 /* small helpers for timestamps */
-.time{color:var(--text-muted);font-size:0.82rem}
+.time{
+  color:var(--text-muted);
+  font-size:0.88rem;
+  background: var(--glass);
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
 
 /* End of file */
 

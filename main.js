@@ -48,17 +48,9 @@ function renderEntry(entry, index){
 
   const title = document.createElement('div');
   title.className = 'history-title';
-  title.textContent = `${entry.pieces} pezzi`;
-
-  const sub = document.createElement('div');
-  sub.className = 'history-sub';
-  const span = document.createElement('span');
-  span.className = 'time';
-  span.textContent = entry.date;
-  sub.appendChild(span);
+  title.innerHTML = `${entry.pieces} pezzi <span class="time">${entry.date}</span>`;
 
   body.appendChild(title);
-  body.appendChild(sub);
   item.appendChild(thumb);
   item.appendChild(body);
 
